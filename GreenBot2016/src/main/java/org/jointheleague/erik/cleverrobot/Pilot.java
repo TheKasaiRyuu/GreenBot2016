@@ -51,10 +51,30 @@ public class Pilot extends IRobotAdapter {
 
     /** This method is called repeatedly. **/
     public void loop() throws ConnectionLostException {
+      /*  driveDirect(250, 250);
+        SystemClock.sleep(600);
+        driveDirect(0, 0);
+        SystemClock.sleep(600);
+        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+        if(isBumpRight() || isBumpLeft()) {
 
+        }
+        */
+        driveDirect(150,250);
+        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+        if (isBumpLeft())
+        {
+            driveDirect(250,150);
+            SystemClock.sleep(1000);
+        }
+        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+        if (isBumpRight())
+        {
+            driveDirect(-150,-150);
+            SystemClock.sleep(1000);
+            driveDirect(250, 150);
 
-
-
+        }
     }
 
     /**
