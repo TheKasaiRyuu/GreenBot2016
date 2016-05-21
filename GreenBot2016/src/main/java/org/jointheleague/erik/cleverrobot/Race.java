@@ -10,7 +10,7 @@ import org.jointheleague.erik.irobot.IRobotInterface;
 import ioio.lib.api.IOIO;
 import ioio.lib.api.exception.ConnectionLostException;
 
-public class Pilot extends IRobotAdapter {
+public class Race extends IRobotAdapter {
 
     private static final String TAG = "Pilot";
     // The following measurements are taken from the interface specification
@@ -33,7 +33,7 @@ public class Pilot extends IRobotAdapter {
     private int currentCommand = 0;
     private final boolean debug = true; // Set to true to get debug messages.
 
-    public Pilot(IRobotInterface iRobot, Dashboard dashboard, IOIO ioio)
+    public Race(IRobotInterface iRobot, Dashboard dashboard, IOIO ioio)
             throws ConnectionLostException {
         super(iRobot);
         sonar = new UltraSonicSensors(ioio);
@@ -60,20 +60,20 @@ public class Pilot extends IRobotAdapter {
 
         }
         */
-        driveDirect(150,250);
+        driveDirect(500, 500);
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft())
         {
-            driveDirect(-250,-250);
-            SystemClock.sleep(1000);
-            driveDirect(250, 150);
+            driveDirect(-100,-100);
             SystemClock.sleep(1500);
+            driveDirect(250, 150);
+            SystemClock.sleep(1000);
         }
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpRight())
         {
-            driveDirect(-250,-250);
-            SystemClock.sleep(1000);
+            driveDirect(-100,-100);
+            SystemClock.sleep(1500);
             driveDirect(150, 250);
             SystemClock.sleep(1000);
 
