@@ -60,21 +60,21 @@ public class Pilot extends IRobotAdapter {
 
         }
         */
-        driveDirect(150,250);
+        driveDirect(200,400);
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft())
         {
             driveDirect(-250,-250);
             SystemClock.sleep(1000);
-            driveDirect(250, 150);
-            SystemClock.sleep(1500);
+            driveDirect(400, 200);
+            SystemClock.sleep(1000);
         }
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpRight())
         {
             driveDirect(-250,-250);
             SystemClock.sleep(1000);
-            driveDirect(150, 250);
+            driveDirect(400, 200);
             SystemClock.sleep(1000);
 
         }
