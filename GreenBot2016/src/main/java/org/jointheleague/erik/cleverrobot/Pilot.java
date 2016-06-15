@@ -65,17 +65,17 @@ public class Pilot extends IRobotAdapter {
         if (isBumpLeft())
         {
             driveDirect(-250,-250);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
             driveDirect(400, 200);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
         }
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpRight())
         {
             driveDirect(-250,-250);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
             driveDirect(400, 200);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
 
         }
     }
