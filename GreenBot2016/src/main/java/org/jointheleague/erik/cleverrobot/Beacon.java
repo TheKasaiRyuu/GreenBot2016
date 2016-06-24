@@ -51,45 +51,40 @@ public class Beacon extends IRobotAdapter {
 
     /** This method is called repeatedly. **/
     public void loop() throws ConnectionLostException {
-      /*  driveDirect(250, 250);
+        driveDirect(250, 250);
+        SystemClock.sleep(1500);
+        readSensors(SENSORS_INFRARED_BYTE);
+       /* driveDirect(0, 0);
         SystemClock.sleep(600);
-        driveDirect(0, 0);
-        SystemClock.sleep(600);
-        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
-        if(isBumpRight() || isBumpLeft()) {
-
-        }
         */
-
         readSensors(SENSORS_INFRARED_BYTE);
-        dashboard.log("stop");
-      /*  int number = getInfraredByte();
-        if(number == 255){
-            driveDirect(200,100);
+        dashboard.log(""+getInfraredByte());
+        if(getInfraredByte() == 255){
+            driveDirect(100,200);
 
         }
-        readSensors(SENSORS_INFRARED_BYTE);
-        if(number == 248 || number == 244){
-            driveDirect(400,400);
+        if(getInfraredByte() == 248 || getInfraredByte() == 244){
+            driveDirect(200,200);
 
 
         }
-    */
+
+
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft())
         {
             driveDirect(-250,-250);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
             driveDirect(400, 200);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
         }
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpRight())
         {
             driveDirect(-250,-250);
-            SystemClock.sleep(1000);
-            driveDirect(400, 200);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(800);
+            driveDirect(200, 400);
+            SystemClock.sleep(800);
 
         }
     }

@@ -78,11 +78,12 @@ public class Race extends IRobotAdapter {
             SystemClock.sleep(1000);
 
         }
-        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+      /*  readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft() && isBumpRight()) {
             driveDirect(0, 250);
             SystemClock.sleep(4000);
         }
+        */
     }
 
     /**
