@@ -47,7 +47,7 @@ public class Dashboard extends IOIOActivity
     /**
      * A Pilot instance
      */
-    private Beacon kalina;
+    private Race kalina;
     /**
      * TTS stuff
      */
@@ -229,7 +229,7 @@ public class Dashboard extends IOIOActivity
                 // The ioio instance is passed to the constructor in case it is
                 // needed for establishing connections to other peripherals, such as
                 // sensors that are not part of the iRobot.
-                kalina = new Beacon(basicRobot, Dashboard.this, ioio);
+                kalina = new Race(basicRobot, Dashboard.this, ioio);
                 kalina.initialize();
             }
 

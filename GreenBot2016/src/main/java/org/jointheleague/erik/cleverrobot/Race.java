@@ -44,13 +44,45 @@ public class Race extends IRobotAdapter {
     /** This method is executed when the robot first starts up. **/
     public void initialize() throws ConnectionLostException {
         //what would you like me to do, Clever Human?
-
-
+        readSensors(100);
+        dashboard.log(""+getBatteryCharge());
+        dashboard.log("" + getBatteryCapacity());
+        int jack = (100 * getBatteryCharge())/getBatteryCapacity();
+        dashboard.log(""+jack);
 
     }
 
+
     /** This method is called repeatedly. **/
     public void loop() throws ConnectionLostException {
+        readSensors(100);
+        dashboard.log(""+getBatteryCharge());
+        dashboard.log(""+getBatteryCapacity());
+        int jack = (100 * getBatteryCharge())/getBatteryCapacity();
+        dashboard.log("" + jack);
+        int apples = getChargingState();
+        SystemClock.sleep(3000);
+        if(apples == 0){
+            dashboard.log("Not Charging");
+        }
+        if(apples == 1){
+            dashboard.log("Reconditioning Charging");
+        }
+        if(apples == 2){
+            dashboard.log("Full Charging");
+        }
+        if(apples == 3){
+            dashboard.log("Trickle Charging");
+        }
+        if(apples == 4){
+            dashboard.log("Waiting");
+        }
+        if(apples == 5){
+            dashboard.log("Charging Fault Condition");
+        }
+
+
+
       /*  driveDirect(250, 250);
         SystemClock.sleep(600);
         driveDirect(0, 0);
@@ -59,7 +91,7 @@ public class Race extends IRobotAdapter {
         if(isBumpRight() || isBumpLeft()) {
 
         }
-        */
+
         driveDirect(500, 500);
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft())
@@ -78,12 +110,14 @@ public class Race extends IRobotAdapter {
             SystemClock.sleep(1000);
 
         }
-      /*  readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
+        readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft() && isBumpRight()) {
             driveDirect(0, 250);
             SystemClock.sleep(4000);
         }
         */
+
+
     }
 
     /**

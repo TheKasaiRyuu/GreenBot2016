@@ -60,7 +60,7 @@ public class Pilot extends IRobotAdapter {
 
         }
         */
-        driveDirect(200,400);
+        driveDirect(300,400);
         readSensors(SENSORS_BUMPS_AND_WHEEL_DROPS);
         if (isBumpLeft())
         {
